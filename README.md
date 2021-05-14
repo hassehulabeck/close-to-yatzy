@@ -20,3 +20,4 @@ Vi bygger ett simpelt spel med fem tärningar.
 5. Skapa något där vi kan bokföra poäng.
 6. Skriv funktioner som kontrollerar om ett poängmål är uppfyllt
 7. Hur "styr" vi detta program? Med URL-requests.
+8. Hur och var kontrollerar vi villkor för att något är slut/klart?
