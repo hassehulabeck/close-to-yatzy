@@ -18,6 +18,14 @@ Vi bygger ett simpelt spel med fem tärningar.
 3. Skapa ett objekt som kan innehålla ett annat objekt
 4. Skapa funktioner som rullar en tärning.
 5. Skapa något där vi kan bokföra poäng.
-6. Skriv funktioner som kontrollerar om ett poängmål är uppfyllt
-7. Hur "styr" vi detta program? Med URL-requests.
-8. Hur och var kontrollerar vi villkor för att något är slut/klart?
+6. Vad behöver vi spara?
+- Hur länge finns data? 
+- Hur lång är en request?
+7. Skriv funktioner som kontrollerar om ett poängmål är uppfyllt
+8. Hur "styr" vi detta program? Med URL-requests.
+9. Hur och var kontrollerar vi villkor för att något är slut/klart?
+
+### Varför funkar det inte?
+- undefined
+- [] eller {}
+- .xyz() is not a method...
