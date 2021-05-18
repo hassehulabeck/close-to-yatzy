@@ -9,6 +9,12 @@ const diceSchema = mongoose.Schema({
     locked: Boolean
 })
 
+diceSchema.methods.roll = function() {
+    if (!this.locked) {
+        this.value = Math.floor(Math.random() * 6)
+    }
+}
+
 const Dice = mongoose.model('Dice', diceSchema)
 
 module.exports = Dice

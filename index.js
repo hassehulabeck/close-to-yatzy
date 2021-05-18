@@ -15,11 +15,15 @@ function newDice() {
         locked: false
     })
 }
+
+
+
 // Skriv ut tärning 2
 console.log(diceHolder[1])
 
 // Ändra värde på tärning 2
-diceHolder[1].value = 3
+diceHolder[1].locked = true
+diceHolder[1].roll()
 console.log(diceHolder[1])
 
 

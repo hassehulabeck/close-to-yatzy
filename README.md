@@ -10,9 +10,9 @@ Vi bygger ett simpelt spel med fem tärningar.
 4. Vi bokför eventuell poäng och upprepar steg 3 max 3 gånger och returnerar då en totalpoäng.
 
 ### Att göra
-1. Skapa tärning
+1. Skapa tärning .
 - vad är en tärning? Vilka egenskaper har den?
-2. Skapa ett objekt
+2. Skapa ett objekt .
 - Vad händer när jag skapar två objekt av samma model?
 - Vad händer om jag förändrar det ena objektet?
 3. Skapa ett objekt som kan innehålla ett annat objekt  
