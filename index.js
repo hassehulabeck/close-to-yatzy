@@ -21,6 +21,27 @@ app.get('/play', (req, res) => {
     res.json(diceHolder)
 })
 
+// Rulla en tärning
+app.post('/roll/:id', (req, res) => {
+    // Översätt 1-5 till 0-4 för att få nollindex
+    let index = req.params.id - 1
+
+    diceHolder[index].roll()
+    res.json(diceHolder)
+})
+
+// Locka eller unlocka en tärning
+app.post('/lock/:id', (req, res) => {
+    // Översätt 1-5 till 0-4 för att få nollindex
+    let index = req.params.id - 1
+
+    // Vänd på true/false
+    diceHolder[index].locked = !diceHolder[index].locked
+    res.json(diceHolder)
+})
+
+
+
 
 
 function newDice() {
@@ -32,7 +53,6 @@ function newDice() {
         // Utnyttja den inbyggda roll-funktionen
     dice.roll()
     return dice
-
 }
 
 
