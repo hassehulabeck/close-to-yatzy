@@ -15,7 +15,7 @@ Vi bygger ett simpelt spel med fem tärningar.
 2. Skapa ett objekt
 - Vad händer när jag skapar två objekt av samma model?
 - Vad händer om jag förändrar det ena objektet?
-3. Skapa ett objekt som kan innehålla ett annat objekt
+3. Skapa ett objekt som kan innehålla ett annat objekt  
 4. Skapa funktioner som rullar en tärning.
 5. Skapa något där vi kan bokföra poäng.
 6. Vad behöver vi spara?
