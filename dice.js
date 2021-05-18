@@ -11,7 +11,7 @@ const diceSchema = mongoose.Schema({
 
 diceSchema.methods.roll = function() {
     if (!this.locked) {
-        this.value = Math.floor(Math.random() * 6)
+        this.value = Math.ceil(Math.random() * 6)
     }
 }
 

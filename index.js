@@ -4,27 +4,36 @@ const Dice = require('./dice')
 
 const diceHolder = []
 
-// Skapa fem tärningar
-for (let i = 0; i < 5; i++) {
-    diceHolder.push(newDice())
-}
+app.use(express.urlencoded({ extended: true }))
+
+
+
+app.get('/play', (req, res) => {
+    // Skapa fem tärningar
+    for (let i = 0; i < 5; i++) {
+        diceHolder.push(newDice())
+    }
+
+    // Rulla alla första gången
+    diceHolder.forEach((dice) => {
+        dice.roll()
+    })
+    res.json(diceHolder)
+})
+
+
 
 function newDice() {
-    return new Dice({
-        value: Math.floor(Math.random() * 6),
-        locked: false
-    })
+    // Skapa en tärning med 0-värde
+    let dice = new Dice({
+            value: 0,
+            locked: false
+        })
+        // Utnyttja den inbyggda roll-funktionen
+    dice.roll()
+    return dice
+
 }
-
-
-
-// Skriv ut tärning 2
-console.log(diceHolder[1])
-
-// Ändra värde på tärning 2
-diceHolder[1].locked = true
-diceHolder[1].roll()
-console.log(diceHolder[1])
 
 
 app.listen(3000, () => {

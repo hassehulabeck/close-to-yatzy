@@ -23,6 +23,9 @@ Vi bygger ett simpelt spel med fem tärningar.
 - Hur lång är en request?
 7. Skriv funktioner som kontrollerar om ett poängmål är uppfyllt
 8. Hur "styr" vi detta program? Med URL-requests.
+    - Nytt spel
+    - Rulla (alla eller någon tärning)
+    
 9. Hur och var kontrollerar vi villkor för att något är slut/klart?
 
 ### Varför funkar det inte?
