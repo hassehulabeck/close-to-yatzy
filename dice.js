@@ -1,7 +1,11 @@
 const mongoose = require('mongoose')
 
 const diceSchema = mongoose.Schema({
-    value: Number,
+    value: {
+        type: Number,
+        min: 1,
+        max: 6
+    },
     locked: Boolean
 })
 
