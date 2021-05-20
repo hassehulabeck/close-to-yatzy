@@ -12,6 +12,10 @@ const diceSchema = mongoose.Schema({
 diceSchema.methods.roll = function() {
     if (!this.locked) {
         this.value = Math.ceil(Math.random() * 6)
+
+        // Här en spärr för att vi inte ska kunna rulla mer än två gånger. 
+        this.locked = true
+
     }
 }
 
