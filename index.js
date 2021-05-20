@@ -4,22 +4,34 @@ const Dice = require('./dice')
 const Scoreboard = require('./scoreboard')
 
 const diceHolder = []
+const scoreboard = new Scoreboard({
+    name: null,
+    points: 0
+})
 
 app.use(express.urlencoded({ extended: true }))
 
+app.get('/reset', (req, res) => {
 
-
-app.get('/play', (req, res) => {
+    // Nollställ dice och poäng
+    diceHolder = []
+    scoreboard.points = 0
 
     // Skriva in namnet i scoreboard
-    Scoreboard.name = req.body.name
+    scoreboard.name = req.body.name
 
     // Skapa fem tärningar
     for (let i = 0; i < 5; i++) {
         diceHolder.push(newDice())
     }
 
-    // Rulla alla första gången
+    res.send("Hej " + req.body.name)
+})
+
+
+app.get('/roll', (req, res) => {
+
+    // Rulla alla 
     diceHolder.forEach((dice) => {
         dice.roll()
     })
@@ -79,7 +91,8 @@ function newDice() {
     // Skapa en tärning med 0-värde
     let dice = new Dice({
             value: 0,
-            locked: false
+            locked: false,
+            numberOfRolls: 0
         })
         // Utnyttja den inbyggda roll-funktionen
     dice.roll()
