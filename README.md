@@ -17,11 +17,11 @@ Vi bygger ett simpelt spel med fem tärningar.
 - Vad händer om jag förändrar det ena objektet?
 3. Skapa ett objekt som kan innehålla ett annat objekt .  
 4. Skapa funktioner som rullar en tärning .
-5. Skapa något där vi kan bokföra poäng.
+5. Skapa något där vi kan bokföra poäng .
 6. Vad behöver vi spara?
 - Hur länge finns data? 
 - Hur lång är en request?
-7. Skriv funktioner som kontrollerar om ett poängmål är uppfyllt
+7. Skriv funktioner som kontrollerar om ett poängmål är uppfyllt .
 8. Hur "styr" vi detta program? Med URL-requests.
     - Nytt spel
     - Rulla (alla eller någon tärning)

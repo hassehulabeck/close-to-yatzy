@@ -3,7 +3,7 @@ const app = express()
 const Dice = require('./dice')
 const Scoreboard = require('./scoreboard')
 
-const diceHolder = []
+let diceHolder = []
 const scoreboard = new Scoreboard({
     name: null,
     points: 0
@@ -36,6 +36,8 @@ app.get('/roll', (req, res) => {
         dice.roll()
     })
     highScore()
+    straight()
+    odd()
     res.json(diceHolder)
 })
 
@@ -48,6 +50,7 @@ app.post('/roll/:id', (req, res) => {
 
     // Kontrollera ev poäng
     highScore()
+    straight()
     res.json(diceHolder)
 })
 
@@ -83,6 +86,41 @@ function highScore() {
         Scoreboard.points += 2
     }
 
+}
+
+function straight() {
+    // Sortera tärningarna efter value
+    diceHolder.sort((a, b) => {
+        if (a.value > b.value)
+            return 1
+        else
+            return -1
+    })
+
+    // Jämföra tärningarna med ett mönster
+    let temp = diceHolder.map((dice) => {
+        return dice.value
+    })
+    const small = [1, 2, 3, 4, 5]
+    const large = [2, 3, 4, 5, 6]
+
+    // Matcha arrayer mot varandra
+    if (temp == small || temp == large)
+        scoreboard.points += 3
+}
+
+
+// Funkar inte just nu - behöver tänka i lugn och ro
+function odd() {
+    const temp = [1, 1, 3, 3, 3]
+    controlledDices = temp.map((dice) => {
+        if (dice.value % 2 == 0)
+            return dice
+    })
+    if (controlledDices.length == 0) {
+        console.log("Odd")
+        scoreboard.points += 1
+    }
 }
 
 
