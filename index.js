@@ -6,8 +6,16 @@ const Scoreboard = require('./scoreboard')
 let diceHolder = []
 const scoreboard = new Scoreboard({
     name: null,
-    points: 0
+    points: 0,
+    rounds: 0
 })
+
+// Vad felas i denna kod? 
+function score(points) {
+    scoreboard.points += points
+    scoreboard.rounds++
+        diceHolder = []
+}
 
 app.use(express.urlencoded({ extended: true }))
 
@@ -38,7 +46,14 @@ app.get('/roll', (req, res) => {
     highScore()
     straight()
     odd()
-    res.json(diceHolder)
+
+    if (scoreboard.rounds == 2) {
+        console.log("Slut")
+        res.send("slut")
+    } else {
+        res.json({ scoreboard, diceHolder })
+    }
+
 })
 
 // Rulla en tärning
@@ -83,7 +98,7 @@ function highScore() {
 
     if (summa > 22) {
         console.log("Över 22")
-        Scoreboard.points += 2
+        score(2)
     }
 
 }
@@ -106,7 +121,7 @@ function straight() {
 
     // Matcha arrayer mot varandra
     if (temp == small || temp == large)
-        scoreboard.points += 3
+        score(3)
 }
 
 
@@ -119,7 +134,7 @@ function odd() {
     })
     if (controlledDices.length == 0) {
         console.log("Odd")
-        scoreboard.points += 1
+        score(1)
     }
 }
 
